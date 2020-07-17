@@ -1,3 +1,12 @@
+
+
+
+
+
+
+
+
+
 class Node:
     def __init__(self, value=None, next_node=None):
         self.value = value
@@ -42,13 +51,47 @@ class LinkedList:
         # while node and node.next_node:
         #     node = node.next_node
         #     self.add_to_head(node.value)
-        if node == None:
-            self.head = None
-            return        
-        if node.next_node == None:
-            self.head = node
-            node.next_node = prev
-            return
-        increment = node.next_node
-        node.next_node = prev
-        self.reverse_list(increment, node)
+        while self.head:
+            if node.next_node:
+                return self.reverse_list(node.next_node, node.value)
+            else:
+                return self.add_to_head(node.value)
+                #return self.add_to_head(node.value)
+        # if node:
+        #     node.set_next(prev)
+
+
+
+        # while current:
+        #     next = current.next_node
+        #     return reverse_list(node)
+        # else:
+        #     return self.value
+
+
+
+
+
+
+
+
+
+
+
+
+llist = LinkedList()
+
+
+llist.add_to_head(1)
+llist.add_to_head(2)
+llist.add_to_head(3)
+llist.add_to_head(4)
+llist.add_to_head(5)
+print(llist.head.value == 5)
+llist.reverse_list(llist.head, None)
+print(llist.head.value == 1)
+print(llist.head.get_next().value == 2)
+print(llist.head.get_next().get_next().value == 3)
+
+
+print(llist.head.get_next().value)
