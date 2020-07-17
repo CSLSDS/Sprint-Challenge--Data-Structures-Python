@@ -38,17 +38,16 @@ class LinkedList:
 
         return False
 
-    def reverse_list(self, node, prev):
-        # while node and node.next_node:
-        #     node = node.next_node
-        #     self.add_to_head(node.value)
+    def reverse_list(self, node, prior):
+        # empty list case
         if node == None:
             self.head = None
-            return        
+            return  
+        # terminal element case      
         if node.next_node == None:
             self.head = node
-            node.next_node = prev
+            node.next_node = prior
             return
-        increment = node.next_node
-        node.next_node = prev
-        self.reverse_list(increment, node)
+        incremented = node.next_node
+        node.next_node = prior
+        self.reverse_list(incremented, node)
